@@ -1,11 +1,11 @@
-
 const axios = require('axios');
 const cors = require('cors');
 
 function Api(express, app) {
   const corsOptions ={
-    origin:'*', 
-    credentials:true
+    origin: ["http://localhost:3000","https://chat-app-socket-io-zarul.herokuapp.com"], 
+    credentials:true,
+    optionsSuccessStatus: 200 // For legacy browser support
   }
   app.use(cors(corsOptions))
   app.use(express.json());
@@ -120,6 +120,8 @@ function Api(express, app) {
       res.json(error)
     })
   })
+
+  app.listen(process.env.PORT || 5000, () => console.log(`Server has started.`));
 }
 
 module.exports = {
