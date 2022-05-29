@@ -6,7 +6,7 @@ function Socket(express, app) {
   const server = http.createServer(app);
   const io = new Server(server, {
     cors: {
-      origin: ["https://chat-app-socket-io-zarul.herokuapp.com"],
+      origin: ["http://localhost:3000"],
       methods: ["GET", "POST"],
       credentials: true
     }
