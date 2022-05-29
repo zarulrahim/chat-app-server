@@ -2,7 +2,7 @@ const axios = require('axios');
 const cors = require('cors');
 
 function Api(express, app) {
-  const corsOptions ={
+  const corsOptions = {
     origin: "*", 
     credentials: true,
     optionsSuccessStatus: 200 // For legacy browser support
