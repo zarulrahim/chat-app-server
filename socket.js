@@ -1,7 +1,6 @@
 const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
-const moment = require("moment");
 
 function Socket(express, app) {
   app.use(cors());
@@ -50,7 +49,7 @@ function Socket(express, app) {
   });
 
   server.listen(3001, () => {
-    console.log("SERVER IS RUNNING");
+    console.log('Socket.io server is running on port', 3001);
   });
 }
 
