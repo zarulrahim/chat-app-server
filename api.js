@@ -1,7 +1,6 @@
 
 const axios = require('axios');
-const http = require("http");
-const cors = require("cors");
+const cors = require('cors');
 
 function Api(express, app) {
   app.use(cors());
