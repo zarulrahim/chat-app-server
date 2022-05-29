@@ -6,7 +6,7 @@ function Socket(express, app) {
   const server = http.createServer(app);
   const io = new Server(server, {
     cors: {
-      origin: ["http://localhost:3000"],
+      origin: "http://localhost:3000",
       methods: ["GET", "POST"],
       credentials: true
     }
@@ -46,7 +46,7 @@ function Socket(express, app) {
     });
   });
 
-  server.listen(3001, () => console.log(`Server has started.`));
+  server.listen(process.env.SOCKET_PORT || 3001, () => console.log(`Server has started.`));
   // server.listen(3001, () => {
   //   console.log('Socket.io server is running on port', 3001);
   // });
