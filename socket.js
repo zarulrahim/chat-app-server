@@ -8,11 +8,15 @@ function Socket(express, app) {
   const server = http.createServer(app);
 
   const io = new Server(server, {
-    cors: {
-      origin: "*", 
-      credentials: true,
-      optionsSuccessStatus: 200 // For legacy browser support
-    },
+    handlePreflightRequest: (req, res) => {
+      const headers = {
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          "Access-Control-Allow-Origin": req.headers.origin, //or the specific origin you want to give access to,
+          "Access-Control-Allow-Credentials": true
+      };
+      res.writeHead(200, headers);
+      res.end();
+    }
   });
 
   io.on("connection", (socket) => {
@@ -49,7 +53,7 @@ function Socket(express, app) {
     });
   });
 
-  // server.listen(process.env.PORT || 3001, () => console.log(`Server has started.`));
+  server.listen(process.env.PORT || 3001, () => console.log(`Server has started.`));
   // server.listen(3001, () => {
   //   console.log('Socket.io server is running on port', 3001);
   // });
