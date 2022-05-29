@@ -14,11 +14,6 @@ function Socket(express, app) {
   //   }
   // });
 
-  app.get("/check-socket", (req, res) => {
-    io.connect();
-    // res.send("Socket server is OK!");
-  })
-
   io.on("connection", (socket) => {
     console.log(`User Connected: ${socket.id}`);
 
