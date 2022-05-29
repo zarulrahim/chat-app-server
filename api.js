@@ -3,7 +3,11 @@ const axios = require('axios');
 const cors = require('cors');
 
 function Api(express, app) {
-  app.use(cors());
+  const corsOptions ={
+    origin:'*', 
+    credentials:true
+  }
+  app.use(cors(corsOptions))
   app.use(express.json());
 
   const BASE_URL = "https://a3fc2203-e440-45a9-90fe-7bdca4ce2d9e.todak.com/api"
