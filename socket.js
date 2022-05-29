@@ -3,14 +3,15 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 
 function Socket(express, app) {
+  const corsOptions = {
+    origin: "*", 
+    credentials: true,
+    optionsSuccessStatus: 200 // For legacy browser support
+  }
+  app.use(cors(corsOptions))
+
   const server = http.createServer(app);
-  const io = new Server(server, {
-    cors: {
-      origin: "https://chat-app-socket-io-zarul.herokuapp.com",
-      methods: ["GET", "POST"],
-      credentials: true
-    }
-  });
+  const io = new Server(server, corsOptions);
 
   io.on("connection", (socket) => {
     // console.log(`User Connected: ${socket.id}`);
