@@ -1,18 +1,9 @@
 const http = require("http");
-// const { Server } = require("socket.io");
-// const cors = require("cors");
 const socket = require('socket.io');
 
 function Socket(express, app) {
   const server = http.createServer(app);
   const io = socket(server);
-  // const io = new Server(server, {
-  //   cors: {
-  //     origin: "/",
-  //     methods: ["GET", "POST"],
-  //     credentials: true
-  //   }
-  // });
 
   io.on("connection", (socket) => {
     console.log(`User Connected: ${socket.id}`);
@@ -48,10 +39,7 @@ function Socket(express, app) {
     });
   });
 
-  server.listen(process.env.SOCKET_PORT || 3001, () => console.log(`Server has started.`));
-  // server.listen(3001, () => {
-  //   console.log('Socket.io server is running on port', 3001);
-  // });
+  server.listen(process.env.SOCKET_PORT || 3002, () => console.log(`Server has started.`));
 }
 
 module.exports = {
