@@ -3,8 +3,8 @@ const cors = require('cors');
 
 function Api(express, app) {
   const corsOptions ={
-    origin: ["http://localhost:3000","https://chat-app-socket-io-zarul.herokuapp.com"], 
-    credentials:true,
+    origin: ["localhost:3000","chat-app-socket-io-zarul.herokuapp.com"], 
+    credentials: true,
     optionsSuccessStatus: 200 // For legacy browser support
   }
   app.use(cors(corsOptions))
