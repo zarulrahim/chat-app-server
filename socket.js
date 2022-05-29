@@ -9,7 +9,7 @@ function Socket(express, app) {
 
   const io = new Server(server, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "https://chat-app-socket-io-zarul.herokuapp.com",
       methods: ["GET", "POST"],
     },
   });
@@ -48,7 +48,7 @@ function Socket(express, app) {
     });
   });
 
-  // server.listen(process.env.PORT || 3001, () => console.log(`Server has started.`));
+  server.listen(process.env.PORT || 3001, () => console.log(`Server has started.`));
   // server.listen(3001, () => {
   //   console.log('Socket.io server is running on port', 3001);
   // });
