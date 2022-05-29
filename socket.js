@@ -48,7 +48,7 @@ function Socket(express, app) {
     });
   });
 
-  app.listen(process.env.PORT || 3001, () => console.log(`Server has started.`));
+  server.listen(process.env.PORT || 3001, () => console.log(`Server has started.`));
   // server.listen(3001, () => {
   //   console.log('Socket.io server is running on port', 3001);
   // });
