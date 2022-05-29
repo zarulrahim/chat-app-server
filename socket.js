@@ -9,8 +9,9 @@ function Socket(express, app) {
 
   const io = new Server(server, {
     cors: {
-      origin: "https://chat-app-socket-io-zarul.herokuapp.com",
-      methods: ["GET", "POST"],
+      origin: "*", 
+      credentials: true,
+      optionsSuccessStatus: 200 // For legacy browser support
     },
   });
 
