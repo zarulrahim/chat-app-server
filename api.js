@@ -12,8 +12,8 @@ function Api(express, app) {
 
   const BASE_URL = "https://a3fc2203-e440-45a9-90fe-7bdca4ce2d9e.todak.com/api"
 
-  app.get("/check", (req, res) => {
-    res.send("App is OK!");
+  app.get("/check-api", (req, res) => {
+    res.send("API server is OK!");
   })
 
   app.post('/login', (req, res) => {
