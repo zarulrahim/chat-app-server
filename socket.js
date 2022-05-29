@@ -6,7 +6,7 @@ function Socket(express, app) {
   const io = socket(server);
 
   io.on("connection", (socket) => {
-    console.log(`User Connected: ${socket.id}`);
+    // console.log(`User Connected: ${socket.id}`);
 
     const _users = [];
     socket.on("trigger_user_update", () => {

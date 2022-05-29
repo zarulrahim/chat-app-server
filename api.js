@@ -39,7 +39,6 @@ function Api(express, app) {
       res.json(response.data)
     })
     .catch((error) => {
-      console.log(error)
       res.json(error)
     })
   })
@@ -104,7 +103,6 @@ function Api(express, app) {
       res.json(response.data)
     })
     .catch((error) => {
-      // console.log(error, req.body, url)
       res.json(error)
     })
   })
